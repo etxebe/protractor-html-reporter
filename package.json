@@ -1,6 +1,6 @@
 {
   "name": "protractor-html-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates HTML report with pie charts based on xml file.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/etxebe/protractor-html-reporter.git"
   },
   "keywords": [
-	"protractor html reporter",
+    "protractor html reporter",
     "protractor html report",
     "protractor",
     "html reporter",
