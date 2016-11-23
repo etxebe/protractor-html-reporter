@@ -3,6 +3,7 @@ protractor-html-reporter
 
 Generates html report with piecharts based on xml file with tests results. For generating xml file with tests results you can use  [jasmine-reporters](https://www.npmjs.com/package/jasmine-reporters).   
 This reporter can also display screenshots taken on test failure. To get the screenshots you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module.
+This package is inspired by [cucumber-html-report](https://www.npmjs.com/package/cucumber-html-reporter).
 
 repo : https://github.com/etxebe/protractor-html-reporter
 
@@ -15,7 +16,7 @@ Sample images
 
 How to use
 ----------------------------------
-* Coverting the xml file to html
+* Converting the xml file to html
    ```javascript
     var HTMLReport = require('protractor-html-reporter');
 
@@ -32,13 +33,12 @@ How to use
     ```javascript	
     //HTMLReport called once tests are finished
     onComplete: function() {
-         var browserName, browserVersion, platform;
+         var browserName, browserVersion;
          var capsPromise = browser.getCapabilities();
 
          capsPromise.then(function (caps) {
             browserName = caps.get('browserName');
             browserVersion = caps.get('version');
-            platform = caps.get('platform');
 
             var HTMLReport = require('protractor-html-reporter');
 
@@ -50,10 +50,10 @@ How to use
             };
             new HTMLReport().from('xmlresults.xml', testConfig);
         });
-     },
+     }
      ```
 
-* In order to obtain results in xml file you can use 'jasmine-reporters' module:
+* In order to obtain results in xml file you can use [jasmine-reporters](https://www.npmjs.com/package/jasmine-reporters) module:
 
     ```javascript
     var jasmineReporters = require('jasmine-reporters');
@@ -64,7 +64,7 @@ How to use
     }));
     ```
 	
-* In order to obtain screenshots on failure you can use 'jasmine2-protractor-utils' module:
+* In order to obtain screenshots on failure you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module:
 	```javascript
 	//In exports.config put this:
     plugins: [{
@@ -91,6 +91,6 @@ The name and version of browser on which the tests were executed.
 
 Credits
 ----------------------------------
-Credit to the developers of [cucumber-html-report](https://www.npmjs.com/package/cucumber-html-reporter) for developing pretty HTML reporting. The protractor-html-reporter is based on this one. I've added some new things, some thing were removed and of course this report is based on xml file instead of json one. 
+Credit to the developers of [cucumber-html-report](https://www.npmjs.com/package/cucumber-html-reporter) for developing pretty HTML reporting. The protractor-html-reporter is based on this one. I've added some new things, some thing were removed and instead of json file this reporter is based on xml file.
 
 
