@@ -1,23 +1,23 @@
-protractor-xml2html-reporter
+protractor-html-reporter
 =================================
 
 Generates html report with piecharts based on xml file with tests results. For generating xml file with tests results you can use  [jasmine-reporters](https://www.npmjs.com/package/jasmine-reporters).   
 This reporter can also display screenshots taken on test failure. To get the screenshots you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module.
 
-repo : https://github.com/etxebe/protractor-xml2html-reporter
+repo : https://github.com/etxebe/protractor-html-reporter
 
 Sample images
 ----------------------------------
-<img src="https://raw.githubusercontent.com/etxebe/protractor-xml2html-reporter/master/sample1.jpg" width="400" height="200" />
-<img src="https://raw.githubusercontent.com/etxebe/protractor-xml2html-reporter/master/sample2.jpg" width="400" height="200" />
-<img src="https://raw.githubusercontent.com/etxebe/protractor-xml2html-reporter/master/sample3.jpg" width="400" height="200" />
-<img src="https://raw.githubusercontent.com/etxebe/protractor-xml2html-reporter/master/sample4.jpg" width="400" height="200" />
+<img src="https://raw.githubusercontent.com/etxebe/protractor-html-reporter/master/sample1.jpg" width="400" height="200" />
+<img src="https://raw.githubusercontent.com/etxebe/protractor-html-reporter/master/sample2.jpg" width="400" height="200" />
+<img src="https://raw.githubusercontent.com/etxebe/protractor-html-reporter/master/sample3.jpg" width="400" height="200" />
+<img src="https://raw.githubusercontent.com/etxebe/protractor-html-reporter/master/sample4.jpg" width="400" height="200" />
 
 How to use
 ----------------------------------
 * Coverting the xml file to html
    ```javascript
-    var HTMLReport = require('protractor-xml2html-reporter');
+    var HTMLReport = require('protractor-html-reporter');
 
     testConfig = {
 		reportTitle: 'Test Execution Report',
@@ -40,7 +40,7 @@ How to use
             browserVersion = caps.get('version');
             platform = caps.get('platform');
 
-            var HTMLReport = require('protractor-xml2html-reporter');
+            var HTMLReport = require('protractor-html-reporter');
 
             testConfig = {
                 reportTitle: 'Test Execution Report',
@@ -91,6 +91,6 @@ The name and version of browser on which the tests were executed.
 
 Credits
 ----------------------------------
-Credit to the developers of [cucumber-html-report](https://www.npmjs.com/package/cucumber-html-reporter) for developing pretty HTML reporting. The protractor-xml2html-reporter is based on this one. I've added some new things, some thing were removed and of course this report is based on xml file instead of json one. 
+Credit to the developers of [cucumber-html-report](https://www.npmjs.com/package/cucumber-html-reporter) for developing pretty HTML reporting. The protractor-html-reporter is based on this one. I've added some new things, some thing were removed and of course this report is based on xml file instead of json one. 
 
 
