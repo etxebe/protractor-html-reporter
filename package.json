@@ -1,0 +1,35 @@
+{
+  "name": "protractor-html-reporter",
+  "version": "1.0.0",
+  "description": "Generates HTML report with pie charts based on xml file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etxebe/protractor-html-reporter.git"
+  },
+  "keywords": [
+	"protractor html reporter",
+    "protractor html report",
+    "protractor",
+    "html reporter",
+    "jasmine",
+    "protractor-xml2html-reporter",
+    "xml to html",
+    "xml2html"
+  ],
+  "author": "Bartosz Nawrocki <etxebebart@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/etxebe/protractor-html-reporter/issues"
+  },
+  "homepage": "https://github.com/etxebe/protractor-html-reporter#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.2",
+    "path": "^0.12.7",
+    "xmldoc": "^0.5.1"
+  }
+}
