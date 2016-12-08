@@ -20,11 +20,13 @@ How to use
    ```javascript
     var HTMLReport = require('protractor-html-reporter');
 
-    testConfig = {
-		reportTitle: 'Test Execution Report',
-		outputPath: './',
-		screenshotPath: './screenshots',
-    };
+	testConfig = {
+                reportTitle: 'Test Execution Report',
+                outputPath: './',
+                screenshotPath: './screenshots',
+                testBrowser: browserName,
+                browserVersion: browserVersion
+            };
     new HTMLReport().from('xmlresults.xml', testConfig);
     ```
 
@@ -42,11 +44,12 @@ How to use
 
             var HTMLReport = require('protractor-html-reporter');
 
-            testConfig = {
+			testConfig = {
                 reportTitle: 'Test Execution Report',
                 outputPath: './',
                 screenshotPath: './screenshots',
-                testBrowser: browserName + ' ' + browserVersion
+                testBrowser: browserName,
+                browserVersion: browserVersion
             };
             new HTMLReport().from('xmlresults.xml', testConfig);
         });
@@ -87,7 +90,9 @@ The path where to write html report.
 * screenshotPath  
 The path where to look for screenshots.
 * testBrowser   
-The name and version of browser on which the tests were executed.
+The name of browser on which the tests were executed. It's necessary if you want to display screenshots in your report.
+* browserVersion
+The version of the browser.
 
 Credits
 ----------------------------------
