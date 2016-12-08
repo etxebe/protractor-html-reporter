@@ -80,7 +80,8 @@ How to use
         clearFoldersBeforeTest: true
       }],
       ```
-      
+If you want to display your screenshots on report you have to pass testBrowser (it's the name of the browser) in testConfig object, because the screenshot's names are in format "browserName-*.png" (e.g. "chrome-*.png").
+
 Options
 ----------------------------------      
 * reportTitle  
@@ -91,7 +92,7 @@ The path where to write html report.
 The path where to look for screenshots.
 * testBrowser   
 The name of browser on which the tests were executed. It's necessary if you want to display screenshots in your report.
-* browserVersion
+* browserVersion   
 The version of the browser.
 
 Credits
