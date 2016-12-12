@@ -1,6 +1,6 @@
 {
   "name": "protractor-html-reporter",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Generates HTML report with pie charts based on xml file.",
   "main": "index.js",
   "scripts": {
