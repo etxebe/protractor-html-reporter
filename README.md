@@ -68,7 +68,33 @@ How to use
     }));
     ```
 	
-* In order to obtain screenshots on failure you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module:
+* In order to obtain screenshots on failure you can use this piece of code (you have to put it in onPrepare):
+
+	```javascript
+	var fs = require('fs-extra');
+	
+	fs.emptyDir('screenshots/', function (err) {
+            console.log(err);
+        });
+
+        jasmine.getEnv().addReporter({
+            specDone: function(result) {
+                if (result.status == 'failed') {
+                    browser.getCapabilities().then(function (caps) {
+                        var browserName = caps.get('browserName');
+
+                        browser.takeScreenshot().then(function (png) {
+                            var stream = fs.createWriteStream('screenshots/' + browserName + '-' + result.fullName+ '.png');
+                            stream.write(new Buffer(png, 'base64'));
+                            stream.end();
+                        });
+                    });
+                }
+            }
+        });
+	```
+Or you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module:
+
 	```javascript
 	//In exports.config put this:
     plugins: [{
