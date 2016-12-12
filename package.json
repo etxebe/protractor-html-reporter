@@ -28,6 +28,7 @@
   "homepage": "https://github.com/etxebe/protractor-html-reporter#readme",
   "dependencies": {
     "fs": "0.0.1-security",
+    "fs-extra": "^1.0.0",
     "lodash": "^4.17.2",
     "path": "^0.12.7",
     "xmldoc": "^0.5.1"
