@@ -68,7 +68,7 @@ How to use
     }));
     ```
 	
-* In order to obtain screenshots on failure you can use this piece of code (you have to put it in onPrepare):
+* In order to obtain screenshots on failure you can use this piece of code (you have to put it in onPrepare). The directory with screenshots must be in the same location as html report file (e.g. html file is in report directory so screenshots files must be in directory /report/screenshots).
 
 	```javascript
 	var fs = require('fs-extra');
@@ -93,7 +93,7 @@ How to use
             }
         });
 	```
-Or you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module:
+* Or you can use [jasmine2-protractor-utils](https://www.npmjs.com/package/jasmine2-protractor-utils) module to get the screenshots:
 
 	```javascript
 	//In exports.config put this:
@@ -116,7 +116,7 @@ The report title displayed in generated html report.
 * outputPath  
 The path where to write html report.
 * screenshotPath  
-The path where to look for screenshots.
+The path where to look for screenshots (the path must be in the same location as html file report e.g. if html file report is in location /report/test-report.html the screenshots must be placed in directory /report/screenshots.
 * testBrowser   
 The name of browser on which the tests were executed. It's necessary if you want to display screenshots in your report.
 * browserVersion   
