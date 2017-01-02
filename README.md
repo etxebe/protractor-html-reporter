@@ -51,7 +51,7 @@ How to use
                 testBrowser: browserName,
                 browserVersion: browserVersion,
                 modifiedSuiteName: false,
-		screenshotsOnlyOnFailure: true
+                screenshotsOnlyOnFailure: true
             };
             new HTMLReport().from('xmlresults.xml', testConfig);
         });
