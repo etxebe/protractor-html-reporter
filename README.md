@@ -50,7 +50,8 @@ How to use
                 screenshotPath: './screenshots',
                 testBrowser: browserName,
                 browserVersion: browserVersion,
-                modifiedSuiteName: false
+                modifiedSuiteName: false,
+		screenshotsOnlyOnFailure: true
             };
             new HTMLReport().from('xmlresults.xml', testConfig);
         });
@@ -123,6 +124,8 @@ The name of browser on which the tests were executed. It's necessary if you want
 The version of the browser.
 *  modifiedSuiteName (bool) default: false  
 It says if suite names were changed at conf.js level. The suite names can be changed using 'jasmine-reporters' module and using modifySuiteName option. If we change the suite names this will also affect the names of screenshots we are looking for. If modifiedSuiteName is set to true the reporter will remove from the suite name the prefix and a dot (e.g. "firefox.") in order to find correct screenshot name. Unfortunately, the reporter will handle such situation only if we change suite name to "browserName.TestSuiteName" form.
+* screenshotsOnlyOnFailure (bool) default: true   
+To display screenshots only in testcases that failed. Default value is "true".
 
 Credits
 ----------------------------------
