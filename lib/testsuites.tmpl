@@ -53,20 +53,27 @@
                         <% if (suite.testcasesresults[testcaseIndex] !== "Skipped") { %>
                           <span class="label label-primary" title="Success"><i class="glyphicon glyphicon-time"></i></span>
                           <font color="black">Time elapsed: <%=suite.testcasestimes[testcaseIndex] %> seconds</font>
-                        <% } %>
 
-                        <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
-                          <br />
-                          <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
-                          <font color="red"><%=suite.testcasesmessages[testcaseIndex] %></font>
-                          <br />
+                          <% if (!report.screenshotsOnlyOnFailure) { %>
+                            <br />
+                            <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
+                            Screenshot:
+                              <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
+                                <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
+                              </a>
+                              <% } else if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
+                                <br />
+                                <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                                <font color="red"><%=suite.testcasesmessages[testcaseIndex] %></font>
+                                <br />
 
-                          <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
-                          Screenshot on failure:
-                            <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
-                              <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
-                            </a>
+                                <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
+                                Screenshot on failure:
+                                <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
+                                  <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
+                                </a>
                         <% } %>
+                      <% } %>
                       </p>
                     </div>
                   </div>
