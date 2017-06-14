@@ -80,6 +80,12 @@
                             </a>
                         <% } %>
                       <% } %>
+                      <% if (suite.testcasesresults[testcaseIndex] === "Skipped") { %>
+                        <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
+                          <span class="label label-warning"><i class="glyphicon glyphicon-remove"></i></span>
+                          <font color="black"><%=suite.testcasesmessages[testcaseIndex] %></font>
+                        <% } %>
+                      <% } %>
                       </p>
                     </div>
                   </div>
