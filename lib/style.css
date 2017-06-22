@@ -45,14 +45,12 @@
     padding: 5px;
 }
 
-.navbar .label-container {
-    position: absolute;
-    right: 10px;
-    top: 14px;
+.panel-body .scenario-container br{
+    margin-bottom: 5px;
 }
 
-.navbar {
-    margin-bottom: 10px;
+.navbar .label-container {
+    margin-top: 12px;
 }
 
 .navbar .label {
@@ -60,11 +58,6 @@
 }
 
 .navbar .project-name {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    margin-left: -700px;
-    text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
@@ -83,6 +76,10 @@ table.arguments {
 
 .screenshot {
     padding: 2% 0 2% 0;
+}
+
+.screenshot img {
+    margin-top: 5px;
 }
 
 .scenarioTitle {
