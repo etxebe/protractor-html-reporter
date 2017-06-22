@@ -1,17 +1,20 @@
 <% _.each(suitesData, function(suite, suiteIndex) { %>
 <div class="row">
-  <div class="col-lg-11 col-md-6">
+  <div class="col-lg-12 col-md-6">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-          <a data-toggle="collapse" href="#collapseSuite<%= suiteIndex %>">
+        <a data-toggle="collapse" href="#collapseSuite<%= suiteIndex %>">
           <% if (suitesData[suiteIndex].failed > 0) { %>
             <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
           <% } else { %>
             <span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
           <% } %>
-          <% if (suitesData[suiteIndex].failed > 0) { %><font color="red"><b><%= suitesData[suiteIndex].keyword %>:</b><%= suitesData[suiteIndex].name%></font>
-          <% } else { %><font color="green"><b><%= suitesData[suiteIndex].keyword %>:</b><%= suitesData[suiteIndex].name%></font><% } %>
+          <% if (suitesData[suiteIndex].failed > 0) { %>
+            <font color="red"><b><%= suitesData[suiteIndex].keyword %>:</b><%= suitesData[suiteIndex].name%></font>
+          <% } else { %>
+            <font color="green"><b><%= suitesData[suiteIndex].keyword %>:</b><%= suitesData[suiteIndex].name%></font>
+          <% } %>
           <span class="label-container">
             <% if (suitesData[suiteIndex].passed) { %><span class="label label-success"><%= suitesData[suiteIndex].passed %></span><% } %>
             <% if (suitesData[suiteIndex].failed) { %><span class="label label-danger"><%= suitesData[suiteIndex].failed %></span><% } %>
@@ -22,72 +25,72 @@
       </h4>
     </div>
     <div id="collapseSuite<%= suiteIndex %>" class="panel-collapse collapse">
-            <div class="panel-body">
-              <% _.each(suite.testcases, function(testcase, testcaseIndex) { %>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" href="#collapseTestCase<%= suiteIndex %>_<%=testcaseIndex %>">
-                        <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %>
-                          <span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
-                        <% } else if (suite.testcasesresults[testcaseIndex] === "Skipped") { %>
-                          <span class="label label-warning"><i class="glyphicon glyphicon-minus"></i></span>
-                        <% } else if (suite.testcasesresults[testcaseIndex] === "Failed") { %>
-                          <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
-                        <% } %>
+      <div class="panel-body">
+        <% _.each(suite.testcases, function(testcase, testcaseIndex) { %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapseTestCase<%= suiteIndex %>_<%=testcaseIndex %>">
+                  <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %>
+                    <span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
+                  <% } else if (suite.testcasesresults[testcaseIndex] === "Skipped") { %>
+                    <span class="label label-warning"><i class="glyphicon glyphicon-minus"></i></span>
+                  <% } else if (suite.testcasesresults[testcaseIndex] === "Failed") { %>
+                    <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                  <% } %>
 
-                        <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %><font color="green"><b>TestCase:</b><%= testcase %></font><% } %>
-                        <% if (suite.testcasesresults[testcaseIndex] === "Skipped") { %><font color="orange"><b>TestCase:</b><%= testcase %></font><% } %>
-                        <% if (suite.testcasesresults[testcaseIndex] === "Failed") { %><font color="red"><b>TestCase:</b><%= testcase %></font><% } %>
-                        <span class="label-container">
-                          <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %><span class="label label-success" title="Passed"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
-                          <% if (suite.testcasesresults[testcaseIndex] === "Skipped") { %><span class="label label-warning" title="Skipped"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
-                          <% if (suite.testcasesresults[testcaseIndex] === "Failed") { %><span class="label label-danger" title="Failed"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
-                      </a>
-                    </h4>
-                  </div>
-
-                  <div id="collapseTestCase<%= suiteIndex %>_<%= testcaseIndex %>" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <p class="scenario-container">
-                        <% if (suite.testcasesresults[testcaseIndex] !== "Skipped") { %>
-                          <span class="label label-primary" title="Success"><i class="glyphicon glyphicon-time"></i></span>
-                          <font color="black">Time elapsed: <%=suite.testcasestimes[testcaseIndex] %> seconds</font>
-
-                          <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
-                            <br />
-                            <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
-                            <font color="red"><%=suite.testcasesmessages[testcaseIndex] %></font>
-                          <% } %>
-
-                          <% if (!report.screenshotsOnlyOnFailure) { %>
-                            <br />
-                            <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
-                            <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
-                              Screenshot on failure:
-                            <% } else { %>
-                              Screenshot:
-                            <% } %>
-                            <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
-                              <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
-                            </a>
-                          <% } else if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
-                            <br />
-                            <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
-                              Screenshot on failure:
-                            <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
-                              <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
-                            </a>
-                        <% } %>
-                      <% } %>
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-              <% }); %>
+                  <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %><font color="green"><b>TestCase:</b><%= testcase %></font><% } %>
+                  <% if (suite.testcasesresults[testcaseIndex] === "Skipped") { %><font color="orange"><b>TestCase:</b><%= testcase %></font><% } %>
+                  <% if (suite.testcasesresults[testcaseIndex] === "Failed") { %><font color="red"><b>TestCase:</b><%= testcase %></font><% } %>
+                  <span class="label-container">
+                    <% if (suite.testcasesresults[testcaseIndex] === "Passed") { %><span class="label label-success" title="Passed"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
+                    <% if (suite.testcasesresults[testcaseIndex] === "Skipped") { %><span class="label label-warning" title="Skipped"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
+                    <% if (suite.testcasesresults[testcaseIndex] === "Failed") { %><span class="label label-danger" title="Failed"><%= suite.testcasesresults[testcaseIndex] %></span><% } %>
+                  </span>
+                </a>
+              </h4>
             </div>
+
+            <div id="collapseTestCase<%= suiteIndex %>_<%= testcaseIndex %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p class="scenario-container">
+                  <% if (suite.testcasesresults[testcaseIndex] !== "Skipped") { %>
+                    <span class="label label-primary" title="Success"><i class="glyphicon glyphicon-time"></i></span>
+                    <font color="black">Time elapsed: <%=suite.testcasestimes[testcaseIndex] %> seconds</font>
+
+                    <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
+                      <br />
+                      <span class="label label-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                      <font color="red"><%=suite.testcasesmessages[testcaseIndex] %></font>
+                    <% } %>
+
+                    <% if (!report.screenshotsOnlyOnFailure) { %>
+                      <br />
+                      <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
+                      <% if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
+                        Screenshot on failure:
+                      <% } else { %>
+                        Screenshot:
+                      <% } %>
+                      <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
+                        <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
+                      </a>
+                    <% } else if (suite.testcasesmessages[testcaseIndex] !== "None") { %>
+                      <br />
+                      <span class="label label-primary"><i class="glyphicon glyphicon-camera"></i></span>
+                        Screenshot on failure:
+                      <a class="screenshot" href="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" data-lightbox="<%= suite.screenshotsNames[testcaseIndex] %>">
+                        <img src="<%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>" style="width:100%;height:100%" alt="Screenshot not found: <%= report.screenshotPath %>/<%= suite.screenshotsNames[testcaseIndex] %>"/>
+                      </a>
+                  <% } %>
+                <% } %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
       </div>
+    </div>
 
 
   </div>
