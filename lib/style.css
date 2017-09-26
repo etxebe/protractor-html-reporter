@@ -162,3 +162,12 @@ th {
 .footer-link:hover {
     color: darkgray;
 }
+
+.col-lg-11 {
+    width: 100%;
+}
+
+.generated-on {
+    text-align: right;
+    padding-bottom: 10px;
+}
