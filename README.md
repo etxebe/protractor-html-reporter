@@ -44,12 +44,13 @@ How to use
 
             var HTMLReport = require('protractor-html-reporter');
 
-			testConfig = {
+                testConfig = {
                 reportTitle: 'Test Execution Report',
                 outputPath: './',
                 screenshotPath: './screenshots',
                 testBrowser: browserName,
                 browserVersion: browserVersion,
+                fileNamePrefix: '',
                 modifiedSuiteName: false,
                 screenshotsOnlyOnFailure: true
             };
